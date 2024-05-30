@@ -35,7 +35,21 @@ export default function TextForm(props) {
 		console.log("On change");
 		setText(event.target.value);
 	};
-
+	const handleCopyClick = () => {
+		var text = document.getElementById("myBox");
+		navigator.clipboard
+			.writeText(text.value)
+			.then(() => {
+				console.log("Text copied to clipboard successfully!");
+			})
+			.catch((err) => {
+				console.error("Failed to copy text: ", err);
+			});
+	};
+	const handleExtraSpaces = () => {
+		let newText = text.split(/[ ]+/);
+		setText(newText.join(" "));
+	};
 	const handleSpeakClick = () => {
 		if ("speechSynthesis" in window) {
 			const utterance = new SpeechSynthesisUtterance(text);
@@ -76,6 +90,12 @@ export default function TextForm(props) {
 				</button>
 				<button className="btn btn-primary mx-2" onClick={handleClearClick}>
 					Clear Text
+				</button>
+				<button className="btn btn-primary mx-2" onClick={handleCopyClick}>
+					Copy Text
+				</button>
+				<button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
+					Remove Extra Spaces
 				</button>
 				<button className="btn btn-primary mx-2" onClick={handleSpeakClick}>
 					Convert to Speech

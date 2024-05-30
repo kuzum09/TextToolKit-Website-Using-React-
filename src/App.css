@@ -39,3 +39,49 @@
 .blank {
 	color: rgb(0, 255, 34);
 }
+/* App.css */
+body.bg-dark {
+	background-color: #343a40;
+	color: #ffffff;
+}
+
+body.bg-light {
+	background-color: #ffffff;
+	color: #000000;
+}
+
+.navbar-dark {
+	background-color: #a55dc7 !important;
+}
+
+.navbar-light {
+	background-color: #98d6f5 !important;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link,
+.navbar-dark .form-check-label {
+	color: #ffffff !important;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .nav-link,
+.navbar-light .form-check-label {
+	color: #000000 !important;
+}
+
+.container.my-3 {
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.container.my-3.bg-dark {
+	background-color: #495057;
+	color: #ffffff;
+}
+
+.container.my-3.bg-light {
+	background-color: #e9ecef;
+	color: #000000;
+}
+
