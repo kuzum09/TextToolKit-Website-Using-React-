@@ -18,17 +18,20 @@ export default function TextForm(props) {
 		console.log("Upper Case was Clicked" + text);
 		let newText = text.toUpperCase();
 		setText(newText);
+		props.showAlert("Converted to Uppercase", "Sucess");
 	};
 
 	const handleLowClick = () => {
 		console.log("Lower Case was Clicked" + text);
 		let newText = text.toLowerCase();
 		setText(newText);
+		props.showAlert("Converted to Lowercase", "Sucess");
 	};
 
 	const handleClearClick = () => {
 		let newText = "";
 		setText(newText);
+		props.showAlert("Text is Cleared", "Sucess");
 	};
 
 	const handleOnChange = (event) => {
@@ -45,10 +48,12 @@ export default function TextForm(props) {
 			.catch((err) => {
 				console.error("Failed to copy text: ", err);
 			});
+		props.showAlert("Copied to Clipboard", "Sucess");
 	};
 	const handleExtraSpaces = () => {
 		let newText = text.split(/[ ]+/);
 		setText(newText.join(" "));
+		props.showAlert("Extra Spaces are Removed", "Sucess");
 	};
 	const handleSpeakClick = () => {
 		if ("speechSynthesis" in window) {
@@ -68,6 +73,7 @@ export default function TextForm(props) {
 		} else {
 			alert("Sorry, your browser does not support text-to-speech.");
 		}
+		props.showAlert("Converted to Speech", "Sucess");
 	};
 
 	return (
