@@ -24,16 +24,28 @@ function App() {
 			document.body.classList.add("bg-dark", "text-light");
 			document.body.classList.remove("bg-light", "text-dark");
 			showAlert("Dark Mode has been enabled", "sucess");
+			setInterval(() => {
+				document.title = "TextToolKit- Dark Mode";
+			}, 10000);
+			setInterval(() => {
+				document.title = "Install TextToolKit now";
+			}, 5000);
 		} else {
 			document.body.classList.add("bg-light", "text-dark");
 			document.body.classList.remove("bg-dark", "text-light");
 			showAlert("light Mode has been enabled", "sucess");
+			setInterval(() => {
+				document.title = "TextToolKit- Light Mode";
+			}, 10000);
+			setInterval(() => {
+				document.title = "Install TextToolKit now";
+			}, 5000);
 		}
 	}, [mode]);
 
 	return (
 		<>
-			<Navbar title="Kusum's" mode={mode} toggleMode={toggleMode} />
+			<Navbar title="TextToolKit" mode={mode} toggleMode={toggleMode} />
 			<Alert alert={alert} />
 			<div className="container my-3">
 				<TextForm heading="Enter Text" showAlert={showAlert} />
