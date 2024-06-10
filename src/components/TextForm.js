@@ -48,6 +48,7 @@ export default function TextForm(props) {
 			.catch((err) => {
 				console.error("Failed to copy text: ", err);
 			});
+		// document.getSelection().removeAllRanges();
 		props.showAlert("Copied to Clipboard", "Sucess");
 	};
 	const handleExtraSpaces = () => {
@@ -88,30 +89,42 @@ export default function TextForm(props) {
 						rows="8"
 						onChange={handleOnChange}></textarea>
 				</div>
-				<button className="btn btn-primary mx-2" onClick={handleUpClick}>
+				<button className="btn btn-primary  mx-2 my-2" onClick={handleUpClick}>
 					Convert to UpperCase
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleLowClick}>
+				<button className="btn btn-primary  mx-2 my-2" onClick={handleLowClick}>
 					Convert to LowerCase
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleClearClick}>
+				<button
+					className="btn btn-primary  mx-2 my-2"
+					onClick={handleClearClick}>
 					Clear Text
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleCopyClick}>
+				<button
+					className="btn btn-primary  mx-2 my-2"
+					onClick={handleCopyClick}>
 					Copy Text
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleExtraSpaces}>
+				<button
+					className="btn btn-primary  mx-2 my-2"
+					onClick={handleExtraSpaces}>
 					Remove Extra Spaces
 				</button>
-				<button className="btn btn-primary mx-2" onClick={handleSpeakClick}>
+				<button
+					className="btn btn-primary  mx-2 my-2"
+					onClick={handleSpeakClick}>
 					Convert to Speech
 				</button>
 			</div>
 			<div className="container my-3">
 				<h2>Your Text Counts</h2>
 				<p>
-					{text.split(/\s+/).filter((word) => word.length !== 0).length} Words
-					and {text.length} characters
+					{
+						text.split(/\s+/).filter((element) => {
+							return element.length !== 0;
+						}).length
+					}{" "}
+					Words and {text.length} characters
 				</p>
 				<p>
 					{0.008 * text.split(/\s+/).filter((word) => word.length !== 0).length}{" "}
